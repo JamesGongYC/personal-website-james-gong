@@ -18,8 +18,8 @@ export const experience: Experience[] = [
       { k: "Role", v: "Agentic Systems Intern" },
       { k: "Dates", v: "Jul 2026 – Aug 2026" },
     ],
-    links: [{ label: "Teach me anything", href: "#" }], // TODO: URL
-    hero: { kind: "embed", src: "about:blank", title: "Teach me anything", height: 620 }, // TODO: set src to the teach-me-anything URL
+    links: [{ label: "Teach me anything", href: "https://teach-me-anything-three.vercel.app" }],
+    hero: { kind: "embed", src: "https://teach-me-anything-three.vercel.app", title: "Teach me anything", height: 620 },
     heroCaption: "Teach me anything, live.",
     body: [
       "I joined Zhidian while the team was still part of Z.ai and stayed through its spinout as an independent, Z.ai-backed company. The work centered on agentic education products built on Z.ai's GLM models, including the teach-me-anything tutor embedded above.",

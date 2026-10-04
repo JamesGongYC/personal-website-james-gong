@@ -10,8 +10,11 @@ export default function Home() {
       <section className="reveal grid md:grid-cols-[1fr_280px] gap-10 md:gap-16 items-start">
         <div>
           <h1 className="display">Yecheng<br />Gong<span className="text-accent">.</span></h1>
-          <p className="mt-6 text-[20px] md:text-[22px] leading-snug max-w-[560px]">{site.tagline}</p>
-          <p className="prose mt-6 max-w-[560px]">{site.bio}</p>
+          <p className="mt-6 text-[20px] md:text-[22px] leading-snug max-w-[560px]">
+            {site.about.map((line, i) => (
+              <span key={i} className="block">{line}</span>
+            ))}
+          </p>
           <p className="mt-6 mono flex flex-wrap gap-5">
             {site.links.map((l) => <a key={l.href} href={l.href} target="_blank" rel="noreferrer">{l.label} ↗</a>)}
           </p>
@@ -21,13 +24,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-14 pt-8 border-t border-rule max-w-[680px]">
-        <p className="text-[20px] md:text-[22px] leading-snug">
-          {site.about.map((line, i) => (
-            <span key={i} className="block">{line}</span>
-          ))}
-        </p>
-      </section>
 
       <section className="mt-24">
         <h2 className="mono label text-muted font-normal text-[13px]">Experience</h2>

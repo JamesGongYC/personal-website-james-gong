@@ -73,7 +73,8 @@ export const projects: Project[] = [
     links: [
       { label: "Repository", href: "https://github.com/JamesGongYC" }, // TODO: repo URL
     ],
-    hero: { kind: "pending", note: "Stats figure (to be drafted)", aspect: "16 / 9" }, // TODO: replace with image
+    hero: { kind: "image", src: "/images/robostats/stats.png", alt: "Actual coverage of nominal 95% binomial intervals at n = 50: Wald, Wilson, Agresti-Coull, Clopper-Pearson", width: 2400, height: 1350 },
+    heroCaption: "Coverage of a nominal 95% interval at n = 50, by exact enumeration. The Wald interval most reports implicitly use dips far below nominal; Clopper-Pearson never does. Reproduced from robostats/results/coverage.",
     body: [
       "Existing VLA evaluation harnesses report success rates with no statistics layer: no intervals, no paired tests, no accounting for shared episodes. robostats is an open-source Python library that adds one. It supports statistically rigorous dual-model and k-model policy comparison experiments, with exact confidence interval outputs under completely paired or partially overlapping evaluation scenarios.",
       "It ships with benchmark adapters and a dependency-free episode recorder for LIBERO, RoboTwin, and RoboDojo outputs. The project grew out of evaluation work during my Noematrix internship, where the gap between a reported number and a defensible claim was hard to ignore.",

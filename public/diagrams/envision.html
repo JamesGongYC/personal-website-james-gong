@@ -1,3 +1,126 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Envision diagram (placeholder)</title>
-<style>html,body{margin:0;height:100%;background:transparent;font:13px/1.4 ui-monospace,monospace;color:#6e675c;display:grid;place-items:center}</style>
-</head><body>Envision architecture diagram, to be drafted.</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Envision: how it works</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600&family=Newsreader:opsz,wght@6..72,400&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#f6f3ec; --fg:#15130f; --muted:#6e675c; --rule:#d9d3c7; --accent:#c8471a; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#141311; --fg:#ece7dc; --muted:#9a927f; --rule:#2a2823; --accent:#e8683a; }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; background:var(--bg); color:var(--fg); }
+  body { font-family:"Newsreader", Georgia, serif; font-size:16px; line-height:1.5; padding:24px; }
+  .mono { font-family:"IBM Plex Mono", ui-monospace, monospace; font-size:12px; letter-spacing:.04em; }
+  .label { text-transform:uppercase; color:var(--muted); }
+
+  .panels { display:grid; grid-template-columns: 1fr 24px 1fr 24px 1fr; align-items:stretch; }
+  .panel { border-top:1px solid var(--fg); padding-top:12px; }
+  .panel h2 { margin:0; font-family:"Fraunces", Georgia, serif; font-weight:600; font-size:20px; line-height:1.1; }
+  .panel .cad { margin:4px 0 12px; }
+  .arrow { display:flex; align-items:flex-start; justify-content:center; color:var(--muted); font-size:18px; padding-top:48px; }
+
+  .box { display:block; width:100%; text-align:left; cursor:pointer; margin:0 0 8px;
+         padding:12px; border:1px solid var(--rule); background:var(--bg); color:var(--fg);
+         font:inherit; transition: border-color 150ms ease, opacity 150ms ease, color 150ms ease; }
+  .box .name { font-family:"Fraunces", Georgia, serif; font-weight:600; font-size:17px; line-height:1.15; }
+  .box .sub { display:block; margin-top:4px; color:var(--muted); }
+  .box:hover { border-color:var(--fg); }
+  .box:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .box.active { border-color:var(--accent); }
+  .box.active .name { color:var(--accent); }
+  .panels.focused .box:not(.active) { opacity:.45; }
+
+  .detail { margin-top:16px; padding-top:16px; border-top:1px solid var(--rule); min-height:120px;
+            display:grid; grid-template-columns: 200px 1fr; gap:24px; }
+  .detail h3 { margin:0 0 4px; font-family:"Fraunces", Georgia, serif; font-weight:300; font-size:28px; line-height:1.05; }
+  .detail p { margin:0 0 8px; max-width:62ch; }
+  .detail ul { margin:0; padding:0; list-style:none; columns:2; column-gap:24px; }
+  .detail li { break-inside:avoid; margin:0 0 2px; }
+  .detail .meta { margin-top:8px; }
+  .hint { color:var(--muted); max-width:62ch; }
+
+  @media (max-width: 680px) {
+    .panels { grid-template-columns:1fr; }
+    .arrow { padding:4px 0; transform:rotate(90deg); }
+    .detail { grid-template-columns:1fr; gap:8px; }
+    .detail ul { columns:1; }
+  }
+  @media (prefers-reduced-motion: reduce) { .box { transition:none; } }
+</style>
+</head>
+<body>
+
+<div class="panels" id="panels">
+  <section class="panel">
+    <h2>Ingest</h2>
+    <p class="mono label cad">every 30 min to 12 h</p>
+    <button class="box" data-id="feeds"><span class="name">Public hazard feeds</span><span class="sub mono">9 sources</span></button>
+    <button class="box" data-id="signals"><span class="name">Signals</span><span class="sub mono">one table, one schema</span></button>
+    <button class="box" data-id="gdacs"><span class="name">GDACS ground truth</span><span class="sub mono">evaluator only</span></button>
+  </section>
+  <div class="arrow" aria-hidden="true">→</div>
+  <section class="panel">
+    <h2>Forecast</h2>
+    <p class="mono label cad">per-skill cadence</p>
+    <button class="box" data-id="skills"><span class="name">Skill library</span><span class="sub mono">executable detection skills</span></button>
+    <button class="box" data-id="forecasts"><span class="name">Forecasts</span><span class="sub mono">typhoons, wildfires</span></button>
+    <button class="box" data-id="map"><span class="name">Public map</span><span class="sub mono">with LLM reasoning</span></button>
+  </section>
+  <div class="arrow" aria-hidden="true">→</div>
+  <section class="panel">
+    <h2>Evolve</h2>
+    <p class="mono label cad">daily, every 24 h</p>
+    <button class="box" data-id="evaluator"><span class="name">Evaluator</span><span class="sub mono">live Brier scores</span></button>
+    <button class="box" data-id="curator"><span class="name">Curator</span><span class="sub mono">mutate, backtest, shadow-eval</span></button>
+    <button class="box" data-id="review"><span class="name">Human review</span><span class="sub mono">operator-gated</span></button>
+  </section>
+</div>
+
+<div class="detail" id="detail" aria-live="polite"></div>
+
+<script>
+  const HINT = `<div class="mono label">Click a box</div><div class="hint">Three layers. Ingest pulls public feeds into one signals table. Forecast runs executable skills over it. Evolve scores every forecast against what actually happened and rewrites the skills, with a human gate before anything ships.</div>`;
+  const D = {
+    feeds: { k: "Ingest · sources", h: "Public hazard feeds",
+      p: "Pulled on a per-source cadence between 30 minutes and 12 hours and normalized into the signals table.",
+      list: ["NASA FIRMS · MODIS and VIIRS fire detections", "NWS Alerts API · fire-weather watches and warnings", "NHC CurrentStorms · Atlantic and East Pacific advisories", "JTWC · Western Pacific cyclone advisories", "Open-Meteo · fire-weather indices", "ECMWF Open Data · fire-weather grids", "AIFS (ECMWF) · AI forecast grids and derived features", "GeoNames cities5000 · populated places, for landfall detection"] },
+    signals: { k: "Ingest · store", h: "Signals",
+      p: "Every payload, whatever its source, lands in one table with one schema. Detection skills read from here and nowhere else, so a new feed is a new ingest adapter, not a new skill.", meta: "signals table · retained alongside GDACS ground truth" },
+    gdacs: { k: "Ingest · ground truth", h: "GDACS ground truth",
+      p: "Global disaster records, retained for scoring only. Skills never see it, so a forecast cannot peek at the answer; the evaluator uses it to score what the skills predicted against what happened.", meta: "read by the evaluator, never by a skill" },
+    skills: { k: "Forecast · code", h: "Skill library",
+      p: "A set of executable detection skills, each on its own cadence. Each cycle a skill clusters signals, interprets them, and writes a probabilistic forecast with LLM reasoning attached. This is the thing Evolve rewrites.", meta: "probability capped at 0.85" },
+    forecasts: { k: "Forecast · output", h: "Forecasts",
+      p: "Probabilistic calls on imminent typhoons and wildfires, one per skill per cycle, each carrying the reasoning that produced it. Scored later by the evaluator.", meta: "p ≤ 0.85 · reasoning attached" },
+    map: { k: "Forecast · surface", h: "Public map",
+      p: "The live view at envision-delta.vercel.app: current forecasts with their reasoning. Only skills that passed human review run here.", meta: "research artifact, not an alerting service" },
+    evaluator: { k: "Evolve · signal", h: "Evaluator",
+      p: "Compares every forecast with realized GDACS outcomes and maintains live Brier scores per skill. These scores are the only fitness signal the curator optimizes.", meta: "Brier score · lower is better" },
+    curator: { k: "Evolve · loop", h: "Curator",
+      p: "Runs every 24 hours, AlphaEvolve-style. Reads live Brier scores, mutates skill code, backtests the candidates on history, shadow-evaluates survivors on live traffic, then queues proposals. Improvements compound across long windows; 29.8% accuracy gain in the first week.", meta: "read → mutate → backtest → shadow-eval → propose" },
+    review: { k: "Evolve · gate", h: "Human review",
+      p: "Promotion is operator-gated. A proposed skill reaches the public map only after a person approves it; nothing self-promotes.", meta: "approved skills replace entries in the skill library" },
+  };
+  const panels = document.getElementById("panels"), detail = document.getElementById("detail");
+  let active = null;
+  detail.innerHTML = HINT;
+  panels.addEventListener("click", (e) => {
+    const b = e.target.closest(".box"); if (!b) return;
+    const id = b.dataset.id;
+    if (active === id) { active = null; panels.classList.remove("focused");
+      panels.querySelectorAll(".box").forEach(x => x.classList.remove("active")); detail.innerHTML = HINT; return; }
+    active = id; panels.classList.add("focused");
+    panels.querySelectorAll(".box").forEach(x => x.classList.toggle("active", x.dataset.id === id));
+    const d = D[id];
+    detail.innerHTML = `<div class="mono label">${d.k}</div><div><h3>${d.h}</h3><p>${d.p}</p>` +
+      (d.list ? `<ul>${d.list.map(s => `<li>${s}</li>`).join("")}</ul>` : "") +
+      (d.meta ? `<div class="mono meta">${d.meta}</div>` : "") + `</div>`;
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && active) panels.querySelector(".box.active").click(); });
+</script>
+</body>
+</html>

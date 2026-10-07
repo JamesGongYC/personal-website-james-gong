@@ -58,7 +58,7 @@ export const projects: Project[] = [
       "I built the ingestion, forecasting, and evolution layers. An AlphaEvolve-style loop scores every forecast against realized storm and fire outcomes, then proposes and tests rewrites of the skills that produced it. Improvements compound across long-running windows; within the first week the system improved its forecast accuracy by 29.8%.",
     ],
     gallery: [
-      { media: { kind: "embed", src: "/diagrams/envision.html", title: "Envision architecture diagram", height: 520 }, caption: "Architecture: ingestion, forecasting, evolution loop." }, // TODO: draft public/diagrams/envision.html
+      { media: { kind: "embed", src: "/diagrams/envision.html", title: "Envision: how it works", height: 680 }, caption: "How it works: Ingest, Forecast, Evolve. Click a box for detail." },
     ],
   },
   {

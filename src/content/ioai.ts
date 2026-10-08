@@ -30,7 +30,7 @@ export const ioai = {
         "The first International Olympiad in Artificial Intelligence was held in Burgas in August 2024. I competed as one of the eight members of Team China and took a silver medal, placing 11th globally.",
         "Immediately after the competition I joined the IOAI scientific committee, moving from solving problems to writing them.",
       ],
-      links: [{ label: "IOAI 2024 results", href: "#" }], // TODO
+      links: [{ label: "IOAI 2024 results", href: "https://ioai-official.org/bulgaria-2024/results/" }],
       gallery: [
         { media: { kind: "image", src: "/images/ioai/2024.jpg", alt: "IOAI 2024, Burgas", width: 1600, height: 1067 }, caption: "IOAI 2024, Burgas, with Team China." }, // TODO: file
       ],
@@ -45,9 +45,8 @@ export const ioai = {
         "I am listed as a contributor in the official IOAI 2025 report. Two of the problem sets I wrote are public on GitHub.",
       ],
       links: [
-        { label: "IOAI 2025 report", href: "#" }, // TODO
-        { label: "Problem set 1", href: "https://github.com/JamesGongYC" }, // TODO
-        { label: "Problem set 2", href: "https://github.com/JamesGongYC" }, // TODO
+        { label: "IOAI 2025 report", href: "https://drive.google.com/file/d/1bzyj_m2EEQrFn2O8YC4qvIg1uGGGypz3/view" },
+        { label: "IOAI 2025 problems", href: "https://github.com/IOAI-official/IOAI-2025" },
       ],
       gallery: [
         { media: { kind: "image", src: "/images/ioai/2025.jpg", alt: "IOAI 2025, Beijing", width: 1600, height: 1067 }, caption: "IOAI 2025, Beijing, on the scientific committee." }, // TODO: file

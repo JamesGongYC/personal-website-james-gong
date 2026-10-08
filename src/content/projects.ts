@@ -21,8 +21,8 @@ export const projects: Project[] = [
       { k: "Recognition", v: "ISEF 3rd Grand Award" },
     ],
     links: [
-      { label: "Repository", href: "https://github.com/JamesGongYC" }, // TODO: repo URL
-      { label: "Paper", href: "#" }, // TODO: paper URL
+      { label: "Repository", href: "https://github.com/JamesGongYC/FireAIDSS" },
+      { label: "Paper", href: "https://drive.google.com/file/d/1uCcEJbgZY6fVkmTC57lI-bDzshonyJzA/view" },
     ],
     hero: { kind: "image", src: "/images/fireaidss/concept.png", alt: "FireAIDSS concept: drone swarm over a wildfire reconstructing thermofluidic fields", width: 528, height: 303 },
     heroCaption: "Concept: swarm sensing feeds a physics-informed reconstruction of the fire's thermofluidic field.",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     ],
     links: [
       { label: "Live", href: "https://envision-delta.vercel.app" },
-      { label: "Repository", href: "https://github.com/JamesGongYC" }, // TODO: repo URL
+      { label: "Repository", href: "https://github.com/JamesGongYC/Envision" },
     ],
     hero: { kind: "embed", src: "https://envision-delta.vercel.app", title: "Envision live dashboard", height: 620 },
     heroCaption: "Live instance at envision-delta.vercel.app.",
@@ -71,7 +71,7 @@ export const projects: Project[] = [
       { k: "Stack", v: "Python, dependency-free core" },
     ],
     links: [
-      { label: "Repository", href: "https://github.com/JamesGongYC" }, // TODO: repo URL
+      { label: "Repository", href: "https://github.com/JamesGongYC/robostats" },
     ],
     hero: { kind: "image", src: "/images/robostats/stats.png", alt: "Actual coverage of nominal 95% binomial intervals at n = 50: Wald, Wilson, Agresti-Coull, Clopper-Pearson", width: 2400, height: 1350 },
     heroCaption: "Coverage of a nominal 95% interval at n = 50, by exact enumeration. The Wald interval most reports implicitly use dips far below nominal; Clopper-Pearson never does. Reproduced from robostats/results/coverage.",

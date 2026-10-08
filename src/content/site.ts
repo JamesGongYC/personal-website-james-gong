@@ -11,7 +11,7 @@ export const site = {
   ],
   links: [
     { label: "GitHub", href: "https://github.com/JamesGongYC" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/" }, // TODO: add handle
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/james-gong-93a22632b/" },
     { label: "Email", href: "mailto:jamesgyc@stanford.edu" },
   ],
 };

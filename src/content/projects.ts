@@ -24,7 +24,7 @@ export const projects: Project[] = [
       { label: "Repository", href: "https://github.com/JamesGongYC" }, // TODO: repo URL
       { label: "Paper", href: "#" }, // TODO: paper URL
     ],
-    hero: { kind: "image", src: "/images/fireaidss/concept.png", alt: "FireAIDSS concept: drone swarm over a wildfire reconstructing thermofluidic fields", width: 1600, height: 900 }, // TODO: add file
+    hero: { kind: "image", src: "/images/fireaidss/concept.png", alt: "FireAIDSS concept: drone swarm over a wildfire reconstructing thermofluidic fields", width: 528, height: 303 },
     heroCaption: "Concept: swarm sensing feeds a physics-informed reconstruction of the fire's thermofluidic field.",
     body: [
       "FireAIDSS is an end-to-end system for wildfire monitoring and prediction. A swarm of customized drones collects temperature and wind measurements over an active fire, and an AI model reconstructs the full thermofluidic field from those sparse samples, giving responders a live 4D picture of where the fire is and where it is heading.",
@@ -32,10 +32,10 @@ export const projects: Project[] = [
       "The system was validated against more than 240 logged simulation and field runs and has been deployed in fire stations in Shanghai. It earned a Third Place Grand Award at the Regeneron International Science and Engineering Fair.",
     ],
     gallery: [
-      { media: { kind: "video", src: "/videos/fireaidss-demo.mp4" }, caption: "Field demo: swarm search and live field reconstruction." }, // TODO: add file
-      { media: { kind: "image", src: "/images/fireaidss/fair-1.jpg", alt: "FireAIDSS at a science fair", width: 1600, height: 1067 }, caption: "Science fair, 1 of 3." }, // TODO
-      { media: { kind: "image", src: "/images/fireaidss/fair-2.jpg", alt: "FireAIDSS at a science fair", width: 1600, height: 1067 }, caption: "Science fair, 2 of 3." }, // TODO
-      { media: { kind: "image", src: "/images/fireaidss/fair-3.jpg", alt: "FireAIDSS at a science fair", width: 1600, height: 1067 }, caption: "Science fair, 3 of 3." }, // TODO
+      { media: { kind: "video", src: "/videos/fireaidss-demo.mp4" }, caption: "Field demo: swarm search and live field reconstruction." },
+      { media: { kind: "image", src: "/images/fireaidss/fair-1.jpg", alt: "FireAIDSS at a science fair", width: 1176, height: 674 }, caption: "Science fair, 1 of 3." },
+      { media: { kind: "image", src: "/images/fireaidss/fair-2.jpg", alt: "FireAIDSS at a science fair", width: 1056, height: 752 }, caption: "Science fair, 2 of 3." },
+      { media: { kind: "image", src: "/images/fireaidss/fair-3.jpg", alt: "FireAIDSS at a science fair", width: 592, height: 446 }, caption: "Science fair, 3 of 3." },
     ],
   },
   {

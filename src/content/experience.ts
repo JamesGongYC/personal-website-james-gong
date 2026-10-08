@@ -35,7 +35,7 @@ export const experience: Experience[] = [
       { k: "Role", v: "Post-Training Intern" },
       { k: "Dates", v: "Aug 2026 – Sep 2026" },
     ],
-    hero: { kind: "video", src: "/videos/noematrix-demo.mp4" }, // TODO: add file
+    hero: { kind: "video", src: "/videos/noematrix-demo.mp4" },
     heroCaption: "Post-trained FastWAM on a dual-arm robot: eggs into trays, tools back into the toolbox.",
     body: [
       "At Noematrix, an embodied-intelligence company building vision-language-action models, I post-trained FastWAM, a pretrained world-action model, for real-robot pick-and-place tasks such as placing eggs into trays and returning tools to toolboxes.",

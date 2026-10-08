@@ -63,7 +63,7 @@ export const ioai = {
         "In parallel I kept setting and testing problems for the 2026 selection tests, NOAI '26 and USAAIO '26. The training deck I built for the team is below.",
       ],
       gallery: [
-        { media: { kind: "embed", src: "/files/ioai-2026-tactics.pdf", title: "IOAI 2026 Team USA training deck", height: 560 }, caption: "Tactics 101: the 2026 Team USA training deck." }, // TODO: file
+        { media: { kind: "embed", src: "/files/ioai-2026-tactics.pdf", title: "IOAI 2026 Team USA training deck", height: 560 }, caption: "Tactics 101: the 2026 Team USA training deck." },
       ],
     },
   ] satisfies IoaiYear[],

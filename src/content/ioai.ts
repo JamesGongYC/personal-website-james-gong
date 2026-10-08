@@ -31,9 +31,7 @@ export const ioai = {
         "Immediately after the competition I joined the IOAI scientific committee, moving from solving problems to writing them.",
       ],
       links: [{ label: "IOAI 2024 results", href: "https://ioai-official.org/bulgaria-2024/results/" }],
-      gallery: [
-        { media: { kind: "image", src: "/images/ioai/2024.jpg", alt: "IOAI 2024, Burgas", width: 1600, height: 1067 }, caption: "IOAI 2024, Burgas, with Team China." }, // TODO: file
-      ],
+      // photo pending: public/images/ioai/2024.jpg
     },
     {
       year: "2025",
@@ -48,9 +46,7 @@ export const ioai = {
         { label: "IOAI 2025 report", href: "https://drive.google.com/file/d/1bzyj_m2EEQrFn2O8YC4qvIg1uGGGypz3/view" },
         { label: "IOAI 2025 problems", href: "https://github.com/IOAI-official/IOAI-2025" },
       ],
-      gallery: [
-        { media: { kind: "image", src: "/images/ioai/2025.jpg", alt: "IOAI 2025, Beijing", width: 1600, height: 1067 }, caption: "IOAI 2025, Beijing, on the scientific committee." }, // TODO: file
-      ],
+      // photo pending: public/images/ioai/2025.jpg
     },
     {
       year: "2026",

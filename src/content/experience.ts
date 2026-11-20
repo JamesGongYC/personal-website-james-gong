@@ -30,7 +30,7 @@ export const experience: Experience[] = [
     slug: "noematrix",
     org: "Noematrix",
     title: "Post-Training Intern",
-    summary: "Post-trained a world-action model for real-robot pick-and-place and deployed it on a dual-arm robot.",
+    summary: "Post-trained a UMI-pretrained world-action model for real-robot pick-and-place and deployed it on a dual-arm robot.",
     meta: [
       { k: "Role", v: "Post-Training Intern" },
       { k: "Dates", v: "Aug 2026 – Sep 2026" },
@@ -38,8 +38,9 @@ export const experience: Experience[] = [
     hero: { kind: "video", src: "/videos/noematrix-demo.mp4" },
     heroCaption: "Post-trained FastWAM on a dual-arm robot: eggs into trays, tools back into the toolbox.",
     body: [
-      "At Noematrix, an embodied-intelligence company building vision-language-action models, I post-trained FastWAM, a pretrained world-action model, for real-robot pick-and-place tasks such as placing eggs into trays and returning tools to toolboxes.",
-      "I deployed the post-trained checkpoint to a dual-arm real robot through the team's inference server, integrating it with the gripper and device pipeline. Real-robot pick-and-place success rose from 0% with the pretrained baseline to 33%. The evaluation work here is what motivated robostats.",
+      "At Noematrix, an embodied-intelligence company building vision-language-action models, I post-trained FastWAM, a world-action model pre-trained on UMI data, for real-robot pick-and-place tasks such as placing eggs into trays and returning tools to toolboxes.",
+      "I deployed the post-trained checkpoint to a dual-arm real robot through the team's inference server, integrating it with the gripper and device pipeline. Real-robot pick-and-place success rose from 15% to 78.3%. The evaluation work here is what motivated robostats.",
+      "I return to Noematrix over winter break 2026 to work on agentic robotics.",
     ],
   },
   {
